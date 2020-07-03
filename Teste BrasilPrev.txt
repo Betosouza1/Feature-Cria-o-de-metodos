@@ -1,0 +1,157 @@
+Feature: DDD e Telefone/MOBK-001
+  
+ Verificar exportar DDD e telefone
+  
+ Pré-Condições:
+  
+ DDD valido e telefone
+
+
+Scenario: Verificar exportar DDD e telefone	
+	
+    Given Acessar lista telefônica e selecionar a opção 'DDD por região'
+    And   Preencher o 'Telefone' e 'DDD' e selecionar a opção 'Entrar'
+    Then  Validar região e clicar em 'Ativar agora'
+    And   Selecionar Menu Estado
+    And   Insiro o 'Código da região'
+    And   Seleciono a opção DDD 'SP'
+    And   Selecionar opção '013'
+    And   Validar informação Litoral clicar em 'Salvar'
+    Then  Validar DDD mais telefone '13 981345785'
+
+
+
+Feature: DDD e Telefone/MOBK-002
+  
+ Verificar exportar DDD telefone inexistente
+  
+ Pré-Condições:
+  
+ DDD e telefone 
+
+
+Scenario: Verificar exportar DDD telefone inexistente	
+	
+    Given Acessar lista telefônica e selecionar a opção 'DDD por região'
+    And   Preencher o 'Telefone' e 'DDD' e selecionar a opção 'Entrar'
+    Then  Validar região e clicar em 'Ativar agora'
+    And   Selecionar Menu Estado
+    And   Insiro o 'Código da região'
+    And   Seleciono a opção DDD 'SP'
+    And   Selecionar opção '013'
+    And   Validar informação Litoral clicar em 'Salvar'
+    Then  Validar DDD mais telefone '13 9xxxxxxx'
+    Then  Validar mensagem 'Você não possui telefone no sistema'
+
+
+
+
+
+
+
+
+
+Feature: Pagamentos/MOBK-003
+  
+Verificar e salvar nova pessoa no sistema
+  
+Pré-Condições:
+  
+CPF e nome validos
+
+Scenario: Verificar e salvar nova pessoa no sistema
+		
+    Given Acessar o aplicativo BrasilPrev e selecionar a opção ‘Acessa conta'
+    And  Preencher o 'CPF' e 'Nome' e selecionar a opção 'Entrar'
+    Then Validar ativação do Token e clicar em 'Ativar agora seu Token BrasilPrev'
+    And  Selecionar Menu sistema
+    And  Insiro o 'CPF'
+    And  Seleciono o 'Nome'
+    And  Selecionar opção 'Salvar Agora'
+    Then Validar 'CPF e Nome'
+    
+
+Feature: Pagamentos/MOBK-004
+  
+Verificar não serem possíveis duas pessoas com mesmo CPF
+  
+Pré-Condições:
+  
+CPF validos
+
+Scenario: Verificar não serem possíveis duas pessoas com mesmo CPF
+		
+    Given Acessar o aplicativo BrasilPrev e selecionar a opção ‘Acessa conta'
+    And  Preencher o 'CPF' e 'Nome' e selecionar a opção 'Entrar'
+    Then Validar ativação do Token e clicar em 'Ativar agora seu Token BrasilPrev'
+    And  Selecionar Menu sistema
+    And  Insiro o 'CPF'
+    And  Selecionar opção 'Salvar Agora'
+    Then Validar 'CPF'
+    When Validar mensagem 'Esse cpf já pertence ao um usuário'
+
+
+
+
+
+
+
+
+
+
+
+Feature: Pagamentos/MOBK-005
+  
+Verificar não serem possíveis duas pessoas com mesmo Nome
+  
+Pré-Condições:
+  
+Nome validos
+
+Scenario: Verificar não serem possíveis duas pessoas com mesmo Nome
+		
+    Given Acessar o aplicativo BrasilPrev e selecionar a opção ‘Acessa conta'
+    And  Preencher o 'CPF' e 'Nome' e selecionar a opção 'Entrar'
+    Then Validar ativação do Token e clicar em 'Ativar agora seu Token BrasilPrev'
+    And  Selecionar Menu sistema
+    And  Insiro o 'Nome'
+    And  Selecionar opção 'Salvar Agora'
+    Then Validar 'Nome'
+    When Validar mensagem 'Esse Nome já pertence ao um usuário'
+
+package br.com.original.steps;
+
+import br.com.original.methods.PagamentosMethods;
+import cucumber.api.java.en.Then;
+
+public class BrasilPrevSteps {
+
+@Then("^Insiro o 'Código da região'$")
+	public void insiro_o_Código_da_região() throws Throwable {
+	   BrasilPrevMethods.inserirCodigodaRegiao();
+	}
+@Then("^Clicar em ‘Salvar’$")
+	public void clicar_de_salvar() throws Throwable {
+	  BrasilPrevMethods.clicarEmSalvar();
+	}
+
+@Then("^Opção ‘Salvar Agora’$")
+	public void opção_salvar_agora() throws Throwable {
+	  BrasilPrevMethods.opçãoSalvarAgora();
+	}
+@Then("^Insiro ‘Nome’$")
+	public void insiro_nome() throws Throwable {
+	  BrasilPrevMethods.insiroNome();
+	}
+@Then("^Insiro ‘Nome’$")
+	public void insiro_nome() throws Throwable {
+	  BrasilPrevMethods.insiroNome();
+	}
+@Then("^Insiro ‘Cpf’$")
+	public void insiro_cpf() throws Throwable {
+	  BrasilPrevMethods.insiroCpf();
+	}
+
+
+
+
