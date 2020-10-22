@@ -1,3 +1,93 @@
+
+public class Login {
+
+  private String nome;
+  private int quantidade;
+
+  public Login() {
+    
+  }
+
+  public void apresentarLogin() {
+ }
+
+}
+
+Login loginUm;
+loginUm = new Login();
+loginUm.apresentarLogin();
+
+
+-------------------------------------------------------------------------------------------------
+public class Funcionario {
+
+  private String nome;
+  private Long salario;
+
+  public Funcionario() {
+  }
+
+  public Funcionario(String nome, Long salario, Long registrar, Long editar, Long deletar) {
+    this.nome = nome;
+    this.salario = salario;
+    this.registrar = registrar
+    this.editar = editar
+    this.deletar = deletar
+  }
+
+  public void trabalhar() {
+    System.out.println(“Estou trabalhando!”);
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome = nome;
+ 
+  }
+  public Long getSalario() {
+    return salario;
+  }
+
+  public void setSalario(Long salario) {
+    this.salario = salario;
+  }
+ 
+  public String getRegistrar() {
+    return registrar;
+  }
+  
+  public void setRegistrar(Long registrar) {
+    this.registrar = registrar;
+  }
+ 
+  public String getEditar() {
+    return editar;
+  }
+  
+  public void setEditar(Long editar) {
+    this.editar = editar;
+
+}
+ 
+  public String getDeletar() {
+    return deletar;
+  }
+  
+  public void setDeletar(Long deletar) {
+    this.deletar = deletar;
+
+
+  }
+
+}
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
 Feature: DDD e Telefone/MOBK-001
   
  Verificar exportar DDD e telefone
