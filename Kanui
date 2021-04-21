@@ -1,0 +1,253 @@
+Feature:  Cadastro Kanui/MOBK-001
+  
+Verificar exportar Nome e Sobrenome
+  
+Pré-Condições: Nome e sobrenome Valido
+  
+
+
+Scenario: Verificar cadastro de nome e sobrenome	
+	
+    Given Acessar cadastrar usuario e selecionar Opção cadastro de novo usuario'
+    And   Preencher o 'Nome' e 'Sobrenome' e selecionar a opção 'Entrar'
+    Then  Validar cadastro Nome e sobrenome e clicar em 'Ativar agora'
+    And   Selecionar Menu Cadastro de novo usuario
+    And   Insiro o 'Nome'
+    And   Seleciono a opção 'Salvar'
+    And   Selecionar o 'Sobrenome'
+    And   Validar informação clicar em 'Salvar'
+    Then  Validar Nome completo 'João Sabia'
+    When  Selecionar a opção 'Salvar'
+
+
+-------------------------------------------------------------------------------------------------------------------------
+Feature:  Cadastro Kanui/MOBK-002
+  
+Verificar exportar Email
+  
+Pré-Condições: Email Valido
+  
+
+Scenario: Verificar cadastro de Email valido	
+	
+    Given Acessar cadastrar usuario e selecionar Opção cadastro de novo usuario'
+    And   Preencher o 'Email' e selecionar a opção 'Entrar'
+    Then  Validar cadastro Email e clicar em 'Ativar agora'
+    And   Selecionar Kanui Menu Cadastro de novo usuario
+    And   Insiro o 'Email'
+    And   Seleciono a opção 'Salvar'
+    And   Validar informação clicar em 'Salvar'
+    Then  Validar Email 'JoãoSabia@hotmail.com'
+    When  Selecionar a opção 'Salvar'
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Feature:  Cadastro Kanui/MOBK-003
+  
+Verificar exportar Sexo Masculino
+  
+Pré-Condições: Selecionar sexo Masculino
+  
+
+
+Scenario: Verificar cadastro de Sexo Masculino	
+	
+    Given Acessar cadastrar usuario e selecionar Opção cadastro de novo usuario'
+    And   Preencher o 'Sexo' e 'Masculino' e selecionar a opção 'Entrar'
+    Then  Validar cadastro Sexo e Masculino e clicar em 'Ativar agora'
+    And   Selecionar Kanui Menu Cadastro de novo usuario
+    And   Insiro o 'Sexo'
+    And   Seleciono a opção 'Salvar'
+    And   Selecionar o 'Masculino'
+    Then   Validar informação clicar em 'Salvar'
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Feature:  Cadastro Kanui/MOBK-004
+  
+Verificar exportar CPF
+  
+Pré-Condições: Selecionar CPF Valido
+  
+
+
+Scenario: Verificar cadastro de CPf
+	
+    Given Acessar cadastrar usuario e selecionar Opção cadastro de novo usuario'
+    And   Preencher o 'CPF' e selecionar a opção 'Entrar'
+    Then  Validar cadastro CPF clicar em 'Ativar agora'
+    And   Selecionar Kanui Menu Cadastro de novo usuario
+    And   Insiro o 'CPF'
+    Then  Seleciono a opção 'Salvar'
+
+-----------------------------------------------------------------------------------------------------------------------------------
+   
+  
+
+Feature:  Cadastro Kanui/MOBK-005
+  
+Verificar exportar data de nascimento
+  
+Pré-Condições: Selecionar data de nascimento valida
+  
+
+
+Scenario: Verificar cadastro da data do nascimento	
+	
+    Given Acessar cadastrar usuario e selecionar Opção cadastro de novo usuario'
+    And   Preencher o 'Data do nascimento' e selecionar a opção 'Entrar'
+    Then  Validar cadastro Data do nascimento clicar em 'Ativar agora'
+    And   Selecionar Kanui Menu Cadastro de novo usuario
+    And   Insiro o 'Data do nascimento'
+    Then  Seleciono a opção 'Salvar'
+    Then  Validar Data do Nascimento '13/12/1984'
+    When  Seleciono a opção 'Salvar'
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Feature:  Cadastro Kanui/MOBK-006
+  
+Verificar exportar Senha e repetir a Senha
+  
+Pré-Condições: Selecionar uma senha valida
+
+
+Scenario: Verificar cadastro de senha e repita a senha	
+	
+    Given Acessar cadastrar usuario e selecionar Opção cadastro de novo usuario'
+    And   Preencher o 'Senha' e  'E repetir a senha'selecionar a opção 'Entrar'
+    Then  Validar cadastro Senha e repetir a senha clicar em 'Ativar agora'
+    And   Selecionar Kanui Menu Cadastro de novo usuario
+    And   Inserir a 'Senha'
+    Then  Seleciono a opção 'Salvar'
+    And   Inserir 'Repetir senha'
+    Then  Validar Senha '123456'
+    When  Seleciono a opção 'Salvar cadastro'
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+package br.com.Kanui.steps;
+
+import br.com.Kanui.methods.CadastroMethods;
+import cucumber.api.java.en.Then;
+
+public class KanuiSteps {
+
+@Then("^Insiro o 'Nome e Sobrenome'$")
+	public void insiro_Nome_e_Sobrenome() throws Throwable {
+	   KanuiMethods.inserirNomeeSobrenome;
+}
+
+@Then("^Insiro o 'Email Valido'$")
+	public void insiro_Email_Valido() throws Throwable {
+	   KanuiMethods.inserirEmailValido;
+}
+
+@Then("^Insiro o 'Sexo Masculino'$")
+	public void insiro_Sexo_Masculino() throws Throwable {
+	   KanuiMethods.inserirSexoMasculino;
+}
+
+@Then("^Insiro o 'CPF Valido'$")
+	public void insiro_CPF_Valido() throws Throwable {
+	   KanuiMethods.inserirCPfValido;
+}
+
+
+@Then("^Insiro o 'Data de Nascimento'$")
+	public void insiro_Data_de_Nascimento() throws Throwable {
+	   KanuiMethods.inserirDatadeNascimento;
+}
+
+@Then("^Insiro o 'Senha e Repetir senha'$")
+	public void insiro_Senha_e_Repetir_`senha() throws Throwable {
+	   KanuiMethods.inserirSenhaerepetirsenha;
+}
+
+ public Cadastro(String Nome, Sobrenome, Email valido, CPF valido, Data de Nascimento, Senha e repetir senha) {
+    this.Nome = Nome;
+    this.Sobrenome = Sobrenome;
+    this.Emailvalido = Emailvalido;
+    this.CPFvalido = CPFvalido;
+    this.DatadeNascimento = DatadeNascimento;
+    This.Senhaerepetirsenha = Senharepetirsenha;
+
+  }
+
+    public void setNome() {
+    System.out.println(“Nome!”);
+  }
+
+    public void getNome() {
+    System.out.println(“Nome!”);
+  }
+
+    public void setSobrenome() {
+    System.out.println(“Sobrenome!”);
+
+
+  }
+
+    public void getSobrenome() {
+    System.out.println(“Sobrenome!”);
+
+
+   }
+
+    public void setEmailValido() {
+    System.out.println(“EmailValido!”);
+
+   }
+
+   public void getEmailValido() {
+   System.out.println(“EmailValido!”);
+
+   }
+
+   public void setCPFvalido() {
+   System.out.println(“CPFvalido!”);
+
+   }
+   public void getCPFvalido() {
+   System.out.println(“CPFvalido!”);
+
+   }
+
+   public void setDataNascimento() {
+   System.out.println(“DataNascimento!”);
+
+   }
+
+   public void getDataNascimento() {
+   System.out.println(“DataNascimento!”);
+
+   }
+
+   public void setSenharepetirsenha() {
+   System.out.println(“Senharepetirsenha!”);
+
+   }
+
+   public void getSenharepetirsenha() {
+   System.out.println(“Senharepetirsenha!”);
+
+   }
+
+public Class cadastroMethods extends DriverConfig{
+
+  private static AndroidDriver<AndroidElement> driver = (AndroidDriver<AndroidElement>) getdriver();
+  private static CadastrousuarioObj cadastrousuario = new CadastrousuarioObj(driver);
+  
+
+  Public static void validarcadastrousuario() {
+     ObjUtilsAndroid.esperaElemento(cadastrousuario.consultausuario, 8000);
+     assertTrue(cadastrousuario.consultausuario.isDisplayed(),  "Cadastro novo usuarios"
+     Utils.evidencia();
+     ObjUtilsAndroid.objectTap(cadastrousuario.consultausuario);
+     Utils.esperaMiliSeg(6000);
+
+}
+
+    }
